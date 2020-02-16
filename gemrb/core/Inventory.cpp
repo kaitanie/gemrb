@@ -580,6 +580,9 @@ int Inventory::AddSlotItem(CREItem* item, int slot, int slottype, bool ranged)
 
 		if (!Slots[slot]) {
 			item->Flags |= IE_INV_ITEM_ACQUIRED;
+                        if (!(item->Flags & IE_INV_ITEM_MOVABLE)) {
+                                item->Flags |= IE_INV_ITEM_UNDROPPABLE;
+			}
 			SetSlotItem(item, slot);
 			EquipItem(slot);
 			return ASI_SUCCESS;
