@@ -5026,7 +5026,7 @@ int Interface::CanMoveItem(const CREItem *item) const
 	//This is an inventory slot, switch to IE_ITEM_* if you use Item
 	if (!HasFeature(GF_NO_DROP_CAN_MOVE) ) {
 		if (item->Flags & IE_INV_ITEM_UNDROPPABLE)
-			return 0;
+			return -1;
 	}
 	//not gold, we allow only one single coin ResRef, this is good
 	//for all of the original games
